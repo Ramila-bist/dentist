@@ -1,0 +1,323 @@
+<?php
+
+$conn =mysql_connect('localhost','root','','contact_db') or die('connecton failed')
+
+if(isset($_POST['submit'])){
+
+    $name = mysql_real_escape_sting($conn, $_POST['name']);
+    $email = mysql_real_escape_sting($conn, $_POST['email']);
+    $number = $_POST['number'];
+    $date = $_POST['date'];
+
+    $insert = mysql_query($conn, "INSERT INTO `contact_form`(name, emaol, number, date)
+    VALUES('$name','$email','$number','$date')") or die('query failed')
+    
+    if($insert){
+        $message[] = 'appoinment made successfully!';
+    }else{
+        $message[] = 'appoinment failed';
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentist Website Design</title>
+    <!-- font-awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- css file link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- header section start -->
+    <header class="header fixed-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <a href="#home" class="logo">Dental<span>Care</span></a> 
+
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#contact">contact</a>
+                </nav> 
+
+                <a href="#contact" class="link-btn">Make appointment</a>
+
+                <div id="menu-btn" class="fas fa-bars"></div>
+
+            </div>
+        </div>
+    </header>
+     <!-- header section end -->
+
+     <!-- home section starts -->
+      <section class="home" id="home">
+        <div class="container">
+            <div class="row  min-vh-100 align-items-center">
+                <div class="content text-center text-md-left">
+                    <h3>let us brighten your smile</h3>
+                    <p>We provide our patients with top-notch dentistry solutions continued physician support, individual approach, education on oral hygiene, high quality materials and warranty on all implantological and prosthetic works.</p>
+                    <a href="#contact" class="link-btn">make appointment</a>
+                </div>
+
+            </div>
+        </div>
+      </section>
+      <!-- home section ends -->
+
+
+
+      <!-- About section stats -->
+       <section class="about" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="image col-md-6 pt-3">
+                    <img src="img/fill.webp" class="w-100 mb-5 mb-md-0" alt="">
+                </div>
+
+                <div class="col-md-6 content">
+                    <span>about us</span>
+                    <h3>True Healthcare For Your Family</h3>
+                    <p>DentalCare Hospital, established by a group of dental professionals in 12005 with the aim of providing quality and affordable dental treatment to people. The establishment of the hospital was a milestone in modernizing dentistry in Nepal. The hospital, with its dedicated professional team and state-of-the-art technology, is providing dental services in three different categories: general, MiCD, and charity. so as to cater to the needs and desires of different groups. </p>
+                    <a href="#contact" class="link-btn">make appointment</a>
+                </div>
+
+            </div>
+        </div>
+       </section>
+       <!-- About section ends -->
+
+
+       <!-- Services section starts -->
+        <section class="services" id="services">
+            <h2 class="heading">our services</h2>
+            <div class="box-container container">
+                <div class="box">
+                    <img src="img/icn1.png" class="text-primary" alt="">
+                    <h3>Teeth Alignment</h3>
+                    <p>Perfect teeth alignment: How teeth should line up. The middle of the top teeth and the lower teeth should line up together in a straight line.</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn2.png" class="text-primary" alt="">
+                    <h3>Community Dentistry</h3>
+                    <p>At Community Dental Clinic, our team is composed of highly skilled and experienced dental specialists dedicated to providing top-notch care. </p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn3.png" class="text-primary" alt="">
+                    <h3>Laser Dentistry</h3>
+                    <p>Laser dentistry is the use of lasers to treat a number of different dental conditions. It became commercially used in clinical dental practice!</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn4.png" class="text-primary" alt="">
+                    <h3>Conservative Dentistry</h3>
+                    <p>Conservative Dentistry, also known as operative dentistry or crown and bridge dentistry, is the area of dentistry that focuses on dental crowns and bridges.</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn5.png" class="text-primary" alt="">
+                    <h3>Oral Pathology</h3>
+                    <p>Oral Pathology is a specialized arm of dentistry that studies the diagnosis and treatment of disease affecting the mouth and surrounding structures.</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn6.png" class="text-primary" alt="">
+                    <h3>Paedodontics</h3>
+                    <p>Pedodontics or Pediatric Dentistry is associated with oral checkups, diagnosis, and treatment of children’s teeth.</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn7.png" class="text-primary" alt="">
+                    <h3>Periodontics</h3>
+                    <p>Periodontics is the specialized field of dentistry that deals with the study of supporting structures of teeth such as gums, alveolar bone, ligament</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn8.png" class="text-primary" alt="">
+                    <h3>Operation Theatre (OT)</h3>
+                    <p>An operating theater is a facility within a hospital where surgical operations are carried out in an aseptic environment.</p>                   
+                </div>
+
+                <div class="box">
+                    <img src="img/icn9.png" class="text-primary" alt="">
+                    <h3>Ambulance Service</h3>
+                    <p>The term “emergency medical service” was popularized when these services began to emphasize diagnosis and treatment at the scene.</p>                   
+                </div>
+
+            </div>
+            </div>
+        </section>
+        <!-- Services section ends -->
+
+
+     <!-- Process section starts -->
+      <section class="process">
+        <h2 class="heading">work process</h2>
+        <div class="box-container container">
+            <div class="box">                
+                <img src="img/cosmetic.png" alt="">
+                <h3>Cosmetic Dentistry</h3>
+                <p>A cosmetic dentist is responsible for a variety of procedures — from minor fixes to major surgeries. Here are a few of the cosmeti...</p>
+            </div>
+
+            <div class="box">                
+                <img src="img/surgical.png" alt="">
+                <h3>General Dentistry</h3>
+                <p>General dentists are the main providers of dental care to people of all ages. At a routine visit to your family dentist, you will...</p>
+            </div>
+
+            <div class="box">                
+                <img src="img/prevent.png" alt="">
+                <h3>Orthodontics</h3>
+                <p>Some people have straight teeth that line up together, but many of us have crooked teeth that don't fit together correctly. Crooke...</p>
+            </div>           
+
+        </div>
+      </section>
+      <!-- Process section ends -->
+
+
+
+      <!-- Review section starts -->
+       <secion class="reviews" id="reviews">
+        <h2 class="heading">satisfied clients</h2>
+        <div class="box-container container">
+
+            <div class="box">
+                <img src="img/person3.webp" alt="">
+                <p>Good approach of treatment. Reasonable cost and patients are well addressed. Excellent interior decors.
+                    if you have any dental problem this is the place you must visit.
+                </p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>Ms. Indhumathy</h3>
+                <span>satisfied client</span>
+            </div>
+
+            <div class="box">
+                <img src="img/person2.webp" alt="">
+                <p> Dr. Sanjay just don't make you feel like a patient and that culture is displayed across all practitioners there.. if you have any dental problem this is the place you must visit.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Ms. Jaffin Shigetha</h3>
+                <span>satisfied client</span>
+            </div>
+
+            <div class="box">
+                <img src="img/person1.png" alt="">
+                <p>Nice, beautiful Ganeshans, satisfactory treatments, what could be said more, too good! Excellent interior decors.
+                    if you have any dental problem this is the place you must visit.
+                </p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>Mr. Sudesh</h3>
+                <span>satisfied client</span>
+            </div>
+
+        </div>
+       </secion>
+       <!-- Review section ends -->
+
+
+       <!-- Contact section starts -->
+        <section class="contact" id="contact">
+            <h2 class="heading">make appointment</h2>
+
+            <form >
+                
+                <span>your name</span>
+                <input type="text" name="name" placeholder="enter your name" class="box" required>
+                <span>your email</span>
+                <input type="email" name="email" placeholder="enter your email" class="box" required>
+                <span>your number</span>
+                <input type="number" name="number" placeholder="enter your number" class="box" required>
+                <span>Appoinment date</span>
+                <input type="datetime-local" name="date" class="box" required>
+                <input type="submit" value="make appointment" name="submit" class="link-btn">
+            </form>
+
+        </section>
+        <!-- Contact section ends -->
+
+
+
+        <!-- footer section starts -->
+         <section class="footer">
+            <div class="box-container container">
+
+                <div class="box">
+                    <i class="fas fa-phone"></i>
+                    <h3>phone number</h3>
+                    <p>+977-9848998877</p>
+                    <p>099-526252</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>our address</h3>
+                    <p>Mahendranagar, Kanchanpur </p>
+                    <p>56404</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-clock"></i>
+                    <h3>opening hour</h3>
+                    <p>07:00AM to 06:00PM</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-envelope"></i>
+                    <h3>email address</h3>
+                    <p>dentalcare@gmail.com</p>
+                    <p>drsudip@gmail.com</p>
+                </div>
+
+            </div>
+            <div class="credit"> &copy; copyright @ <?php echo date(Y);> by <span>dentalcare</span> | All Rights Reserved.</div>
+         </section>
+         <!-- footer section ends -->
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <!-- js file link -->
+    <script src="js/script.js">
+    </script>
+</body>
+</html>
